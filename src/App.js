@@ -96,10 +96,26 @@ function App() {
           </div>
         </div>
         <div className='flex justify-center items-center gap-[60px] xl:gap-[140px] mt-[60px]'>
-          <div className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-white'>
+          <div
+            className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-white cursor-pointer'
+            onClick={
+              () => window.open(
+                `https://discord.gg/WGvwENrxBH`,
+                '_blank',
+                'noreferrer',
+              )}
+          >
             <img src={discordIcon} className='w-[120px] xl:w-[260px]' alt='DISCORD'/>
           </div>
-          <div className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-black'>
+          <div
+            className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-black cursor-pointer'
+            onClick={
+              () => window.open(
+                `https://x.com/karmaawallet?s=21`,
+                '_blank',
+                'noreferrer',
+              )}
+          >
             <img src={xstreamIcon} className='w-[90px] xl:w-[180px]' alt='XSTREAM'/>
           </div>
         </div>
