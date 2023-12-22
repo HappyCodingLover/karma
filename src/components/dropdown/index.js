@@ -14,7 +14,7 @@ const useOutsideAlerter = (ref, onClickOutside) => {
     return () => {
       document.removeEventListener('mouseup', handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, onClickOutside]);
 };
 
 export const Dropdown = ({ ticker, tickerArr=[], onSelect }) => {

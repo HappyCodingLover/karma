@@ -16,16 +16,22 @@ import { Dropdown } from '../../components/dropdown';
 import { useState } from 'react';
 import { coinArr } from '../../constants';
 
+import plusLogo from '../../assets/imgs/plus.png'
+import usdcLogo from '../../assets/imgs/usdc.png'
+import indicatorLogo from '../../assets/imgs/indicator.png'
+import WalletModal from '../../components/walletModal';
+
 // import { Charactor } from '../../components/character';
 
 export const MainPage = () => {
   const [ticker, setTicker] = useState(coinArr[0])
+  const [open, setOpen] = useState(false)
 
   const onSelect = (item) => {
     setTicker({...item})
   }
   const connectWallet = () => {
-    alert('connect your wallet')
+    setOpen(true)
   }
 
   return (
@@ -44,7 +50,8 @@ export const MainPage = () => {
             <Typography className="text-white text-[30px] xl:text-[60px]" variant="label-large">USDC</Typography>
             <Dropdown ticker={ticker} tickerArr={coinArr} onSelect={onSelect}/>
           </div>
-          <div className='cursor-pointer' onClick={connectWallet}>
+
+          <div className='bg-[#15141b] py-1 px-3 cursor-pointer rounded-[10px]' onClick={connectWallet}>
             <Typography className="text-white text-[28px] xl:text-[56px]" variant="label-large">Connect Wallet</Typography>
           </div>
         </div>
@@ -81,27 +88,43 @@ export const MainPage = () => {
           </div>
 
           <div className="w-1/3">
-            <div className="flex items-end gap-[120px] my-[36px] xl:my-[78px] min-h-[116px] xl:min-h-[220px]">
-              <Typography className="m-0 text-[#9E9E9E] text-[32px] xl:text-[64px]" variant="label-large">Supply</Typography>
-              <Typography className="m-0 text-[#9E9E9E] text-[32px] xl:text-[64px]" variant="label-large">Borrow</Typography>
+            <div className="flex items-end gap-[30px] xl:gap-[120px] my-[36px] xl:my-[78px] min-h-[116px] xl:min-h-[220px]">
+              <button
+                className='bg-[#101516] flex justify-center items-center gap-[15px] p-2 text-white rounded-[20px] w-[260px] xl:w-[300px] h-[64px] xl:h-[140px]'
+              >
+                <div className="flex justify-center items-center w-[40px] xl:w-[80px] h-[40px] xl:h-[80px] rounded-full bg-gray-500">
+                  <img src={plusLogo} alt="add"/>
+                </div>
+                <Typography className="m-0 text-[#9E9E9E] text-[32px] xl:text-[64px]" variant="label-large">Supply</Typography>
+              </button>
+              <button
+                className='bg-[#101516] flex justify-center items-center gap-[15px] text-white rounded-[20px] w-[260px] xl:w-[300px] h-[64px] xl:h-[140px]'
+              >
+                <div className="flex justify-center items-center w-[40px] xl:w-[80px] h-[40px] xl:h-[80px] rounded-full bg-gray-500">
+                  <img src={plusLogo} alt="add"/>
+                </div>
+                <Typography className="m-0 text-[#9E9E9E] text-[32px] xl:text-[64px]" variant="label-large">Borrow</Typography>
+              </button>
             </div>
 
             <div className="flex flex-col gap-[60px]">
               <div className="flex flex-col gap-[20px] px-[26px] xl:px-[44px] py-[35px] xl:py-[70px] bg-[#1B2031] rounded-[20px] min-w-[300px]">
                 <Typography className="text-[24px] xl:text-[48px] text-[#9E9E9E]" variant="label-small">USDC Wallet Balance</Typography>
                 <div className="flex items-center gap-4 xl:my-[20px]">
-                  <div className="w-[50px] xl:w-[100px] h-[50px] xl:h-[100px] rounded-[10px] bg-white"></div>
+                  <img src={usdcLogo} alt='USDC'/>
                   <Typography className="text-[36px] xl:text-[70px] text-[#9E9E9E]" variant="label-medium">0.0000</Typography>
                 </div>
                 <Divider className='m-0' />
                 <div className="flex justify-between items-center">
-                  <div>
+                  <div className='flex flex-col'>
                     <Typography className="text-[24px] xl:text-[48px] text-[#9E9E9E]" variant="label-small">Borrow APR</Typography>
                     <Typography className="text-white text-[36px] xl:text-[70px]" variant="label-small">1.03%</Typography>
+                    <img className='m-auto' src={indicatorLogo} alt=''/>
                   </div>
-                  <div>
+                  <div className='flex flex-col'>
                     <Typography className="text-[24px] xl:text-[48px] text-[#9E9E9E]" variant="label-small">Lend APR</Typography>
                     <Typography className="text-white text-[36px] xl:text-[70px]" variant="label-small">1.03%</Typography>
+                    <img className='m-auto' src={indicatorLogo} alt=''/>
                   </div>
                 </div>
               </div>
@@ -143,6 +166,7 @@ export const MainPage = () => {
 
       <img src={nft2} className='absolute top-[40%] right-[30px] w-[120px] xl:w-[200px]' alt='NFT'/>
       {/* <img src={nft3} className='absolute top-[70%] w-[120px] xl:w-[200px] left-[-50px] z-1' alt='NFT3'/> */}
+      <WalletModal isModalOpen={open} setIsModalOpen={setOpen}/>
     </div>
   );
 }
