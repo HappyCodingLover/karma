@@ -5,10 +5,10 @@ const textStyle = {
   'heading-large': 'text-[4rem] leading-[4.5rem] font-bold text-black',
   'heading-medium': 'text-[2.5rem] leading-[3rem] font-bold text-black',
   'heading-small': 'text-[1.875rem] leading-[2.5rem] font-bold text-black',
-  'label-large': 'text-[1.125rem] leading-[1.75rem] font-bold text-black',
-  'label-medium': 'text-[0.9375rem] leading-[1.5rem] font-bold text-black',
-  'label-small': 'text-[0.875rem] leading-[1.25rem] font-bold text-black',
-  'label-extrasmall': 'text-[0.75rem] leading-[1rem] font-bold text-black',
+  'label-large': 'text-[1.125rem] leading-[1.75rem] font-medium text-black',
+  'label-medium': 'text-[0.9375rem] leading-[1.5rem] font-medium text-black',
+  'label-small': 'text-[0.875rem] leading-[1.25rem] font-medium text-black',
+  'label-extrasmall': 'text-[0.75rem] leading-[1rem] font-medium text-black',
   'paragraph-large':
     'text-[1.125rem] leading-[1.75rem] font-[500] text-gray-600',
   'paragraph-medium':

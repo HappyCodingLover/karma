@@ -1,26 +1,25 @@
-import './App.css';
-import { RoundedIcon } from './components/roundedicon';
-import { Typography } from './components/typography';
-import logo from './assets/imgs/logo.png'
-import nft1 from './assets/imgs/nft1.png'
-import nft2 from './assets/imgs/nft2.png'
-import nft3 from './assets/imgs/nft3.png'
-import nft4 from './assets/imgs/nft4.png'
-import nft5 from './assets/imgs/nft5.png'
-import discordIcon from './assets/imgs/discord.png'
-import xstreamIcon from './assets/imgs/xstream.png'
+import { RoundedIcon } from '../../components/roundedicon';
+import { Typography } from '../../components/typography';
+import logo from '../../assets/imgs/logo.png'
+import nft1 from '../../assets/imgs/nft1.png'
+import nft2 from '../../assets/imgs/nft2.png'
+import nft3 from '../../assets/imgs/nft3.png'
+import nft4 from '../../assets/imgs/nft4.png'
+import nft5 from '../../assets/imgs/nft5.png'
+import discordIcon from '../../assets/imgs/discord.png'
+import xstreamIcon from '../../assets/imgs/xstream.png'
 
-import { Charactor } from './components/character';
+import { Charactor } from '../../components/character';
 
-function App() {
+export const LandingPage = () => {
   return (
     <>
-      <div className='flex flex-col gap-[80px] sm:gap-[40px] xl:gap-[200px] bg-black px-[100px] sm:px-[40px] py-[60px] h-[660px] sm:h-[560px] xl:h-[1360px]'>
+      <div className='flex flex-col gap-[80px] xl:gap-[200px] bg-black px-[40px] xl:px-[100px] py-[60px] h-[660px] xl:h-[1360px]'>
         <div className="flex justify-center items-center">
           <div className='flex flex-1 justify-end'>
             <img src={logo} className='w-[208px] xl:w-[416px]' alt='LOGO'/>
           </div>
-          <div className="flex flex-1 justify-center items-center gap-[80px] xl:gap-[160px]">            
+          <div className="flex flex-1 justify-center items-center gap-[60px] xl:gap-[160px]">            
             <Typography className="text-[55px] xl:text-[110px] text-white mb-3" variant="heading-medium">Karma</Typography> 
             <RoundedIcon className="w-[15px] xl:w-[40px] h-[15px] xl:h-[40px]" />
             <Typography className="text-[40px] xl:text-[80px] text-white" variant="heading-small">Governance</Typography>   
@@ -28,7 +27,7 @@ function App() {
             <Typography className="text-[40px] xl:text-[80px] text-white" variant="heading-small">Markets</Typography>   
           </div>
           <div className='flex flex-1 justify-center items-center xl:gap-[100px]'>
-            <img src={nft1} className='w-[110px] xl:w-[210px] rotate-[25px] ml-[80px]' alt="NFT1"/>
+            <img src={nft1} className='w-[96px] xl:w-[210px] rotate-[25px] ml-[80px]' alt="NFT1"/>
             <button className='bg-[#1061AC] py-[12px] text-white rounded-full ml-[60px] w-[120px] xl:w-[280px] h-[70px] xl:h-[140px] text-[30px] xl:text-[60px] font-semibold'> App </button>
           </div>
         </div>
@@ -96,10 +95,26 @@ function App() {
           </div>
         </div>
         <div className='flex justify-center items-center gap-[60px] xl:gap-[140px] mt-[60px]'>
-          <div className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-white'>
+          <div
+            className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-white'
+            onClick={
+              () => window.open(
+                `https://discord.gg/WGvwENrxBH`,
+                '_blank',
+                'noreferrer',
+              )}
+          >
             <img src={discordIcon} className='w-[120px] xl:w-[260px]' alt='DISCORD'/>
           </div>
-          <div className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-black'>
+          <div
+            className='flex justify-center items-center w-[150px] xl:w-[340px] h-[150px] xl:h-[340px] rounded-[42%] bg-black'
+            onClick={
+              () => window.open(
+                `https://x.com/karmaawallet?s=21`,
+                '_blank',
+                'noreferrer',
+              )}
+          >
             <img src={xstreamIcon} className='w-[90px] xl:w-[180px]' alt='XSTREAM'/>
           </div>
         </div>
@@ -111,5 +126,3 @@ function App() {
     </>
   );
 }
-
-export default App;
