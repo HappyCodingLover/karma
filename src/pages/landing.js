@@ -10,8 +10,10 @@ import discordIcon from './assets/imgs/discord.png'
 import xstreamIcon from './assets/imgs/xstream.png'
 
 import { Charactor } from './components/character';
+import { useNavigate } from 'react-router-dom';
 
 export default function Landing() {
+  const navigate = useNavigate()
   return (
     <>
       <div className='flex flex-col gap-[80px] sm:gap-[40px] xl:gap-[200px] bg-black px-[100px] sm:px-[40px] py-[60px] h-[660px] sm:h-[560px] xl:h-[1360px]'>
@@ -28,7 +30,12 @@ export default function Landing() {
           </div>
           <div className='flex flex-1 justify-center items-center xl:gap-[100px]'>
             <img src={nft1} className='w-[110px] xl:w-[210px] rotate-[25px] ml-[80px]' alt="NFT1"/>
-            <button className='bg-[#1061AC] py-[12px] text-white rounded-full ml-[60px] w-[120px] xl:w-[280px] h-[70px] xl:h-[140px] text-[30px] xl:text-[60px] font-semibold'> App </button>
+            <button
+              className='bg-[#1061AC] py-[12px] text-white rounded-full ml-[60px] w-[120px] xl:w-[280px] h-[70px] xl:h-[140px] text-[30px] xl:text-[60px] font-semibold'
+              onClick={() => navigate('/main/dashboard')}
+            >
+              App
+            </button>
           </div>
         </div>
 
