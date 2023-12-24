@@ -8,11 +8,16 @@ import router from './routers'
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
+import { WagmiConfig } from 'wagmi'
+import { config } from './wagmi'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <RouterProvider router={router} />
+    <WagmiConfig config={config}>
+      <RouterProvider router={router} />
+    </WagmiConfig>
   </React.StrictMode>
 );
 

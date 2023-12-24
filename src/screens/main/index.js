@@ -22,8 +22,14 @@ import indicatorLogo from '../../assets/imgs/indicator.png'
 import WalletModal from '../../components/walletModal';
 
 // import { Charactor } from '../../components/character';
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 export const MainPage = () => {
+  const { address, isConnected } = useAccount()
+  const { isLoading } = useConnect()
+
+  const { disconnect } = useDisconnect()
+
   const [ticker, setTicker] = useState(coinArr[0])
   const [open, setOpen] = useState(false)
 
@@ -31,7 +37,13 @@ export const MainPage = () => {
     setTicker({...item})
   }
   const connectWallet = () => {
-    setOpen(true)
+    if (!isLoading) {
+      if (!isConnected) {
+        setOpen(true)  
+      } else {
+        disconnect()
+      }  
+    }
   }
 
   return (
@@ -52,7 +64,12 @@ export const MainPage = () => {
           </div>
 
           <div className='bg-[#15141b] py-1 px-3 cursor-pointer rounded-[10px]' onClick={connectWallet}>
-            <Typography className="text-white text-[28px] xl:text-[56px]" variant="label-large">Connect Wallet</Typography>
+            <Typography
+              className="text-white text-[28px] xl:text-[56px]"
+              variant="label-large"
+            >
+              {isLoading ? 'Loading...' : isConnected ? `${address.slice(0, 6) + '...' + address.slice(address.length - 7, address.length)}` : 'Connect Wallet'}
+            </Typography>
           </div>
         </div>
 
